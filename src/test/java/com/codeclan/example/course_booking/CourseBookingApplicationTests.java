@@ -1,5 +1,6 @@
 package com.codeclan.example.course_booking;
 
+import com.codeclan.example.course_booking.models.Booking;
 import com.codeclan.example.course_booking.models.Course;
 import com.codeclan.example.course_booking.models.Customer;
 import com.codeclan.example.course_booking.repositories.BookingRepository;
@@ -40,6 +41,18 @@ class CourseBookingApplicationTests {
 	public void canGetCustomersInACourse() {
 		List<Customer> foundCustomers = customerRepository.findByBookingsCourseName("Advanced Spring");
 		assertEquals(2, foundCustomers.size());
+	}
+
+	@Test
+	public void canGetCoursesForAGivenCustomer() {
+		List<Course> foundCourses = courseRepository.findByBookingsCustomerName("Rudy");
+		assertEquals(2, foundCourses.size());
+	}
+
+	@Test
+	public void canGetBookingsForAGivenDate() {
+		List<Booking> foundBookings = bookingRepository.findByDate("01-09-20");
+		assertEquals(1, foundBookings.size());
 	}
 
 }

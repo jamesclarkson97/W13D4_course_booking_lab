@@ -55,4 +55,10 @@ class CourseBookingApplicationTests {
 		assertEquals(1, foundBookings.size());
 	}
 
+	@Test
+	public void canGetCustomersInGivenTownAndCourse() {
+		List<Customer> foundCustomers = customerRepository.findByTownAndBookingsCourseName("Edinburgh","Advanced Spring");
+		assertEquals(2, foundCustomers.size());
+	}
+
 }

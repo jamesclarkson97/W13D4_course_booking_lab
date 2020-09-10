@@ -61,4 +61,10 @@ class CourseBookingApplicationTests {
 		assertEquals(2, foundCustomers.size());
 	}
 
+	@Test
+	public void canGetCustomersOverCertainAgeInGivenTownAndCourse() {
+		List<Customer> foundCustomers = customerRepository.findByAgeGreaterThanAndTownAndBookingsCourseName(30, "Edinburgh", "Advanced Spring");
+		assertEquals(1, foundCustomers.size());
+	}
+
 }
